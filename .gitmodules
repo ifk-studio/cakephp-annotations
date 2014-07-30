@@ -1,3 +1,0 @@
-[submodule "Vendor/addendum"]
-	path = Vendor/addendum
-	url = git@github.com:kevbry/addendum.git

@@ -5,7 +5,6 @@
  *
  * @author kevbry
  */
-interface ComponentCallbacksFilterableAnnotation
-{
+interface CallbacksFilterableAnnotation {
 	public function runForStage($stage);
 }

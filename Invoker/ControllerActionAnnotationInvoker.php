@@ -7,23 +7,21 @@ App::uses('AnnotationInvoker', 'Invoker');
  *
  * @author kevbry
  */
-class ControllerActionAnnotationInvoker extends AnnotationInvoker
-{
+class ControllerActionAnnotationInvoker extends AnnotationInvoker {
 	protected $controller;
 	protected $annotations;
-	
-	public function __construct($controller, $annotations)
-	{
+
+	public function __construct($controller, $annotations) {
 		$this->controller = $controller;
 		$this->annotations = $annotations;
 	}
-	
+
 	/**
 	 * Handle executing a single annotation
+	 *
 	 * @param ControllerActionAnnotation $annotation The annotation to run
 	 */
-	protected function invokeAnnotation($annotation)
-	{
+	protected function invokeAnnotation($annotation) {
 		$annotation->invoke($this->controller);
 	}
 }

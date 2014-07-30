@@ -8,27 +8,23 @@ App::uses('AnnotationEngine', 'Engine');
  *
  * @author kevbry
  */
-class AddendumAnnotationEngine implements AnnotationEngine
-{
+class AddendumAnnotationEngine implements AnnotationEngine {
 	protected $class;
-	public function readAnnotationsFromClass($class)
-	{
+
+	public function readAnnotationsFromClass($class) {
 		$this->class = $class;
 	}
-	
-	public function annotationsForClass()
-	{
+
+	public function annotationsForClass() {
 		return null;
 	}
-	
-	public function annotationsForMethod($method)
-	{
-		$reflection_method = new ReflectionAnnotatedMethod($this->class, $method);
-		return $reflection_method->getAllAnnotations();
+
+	public function annotationsForMethod($method) {
+		$reflectionMethod = new ReflectionAnnotatedMethod($this->class, $method);
+		return $reflectionMethod->getAllAnnotations();
 	}
-	
-	public function annotationsForProperty($property_name)
-	{
+
+	public function annotationsForProperty($property_name) {
 		return null;
 	}
 }
@@ -36,9 +32,6 @@ class AddendumAnnotationEngine implements AnnotationEngine
 /**
  * Addendum Annotation class provides the required behaviour
  */
-class CakeAnnotation extends Annotation
-{
+class CakeAnnotation extends Annotation {
 	public $value;
 }
-
-?>

@@ -1,5 +1,5 @@
 <?php
-App::uses('ComponentCallbacksAnnotationFilter', 'Filter');
+App::uses('ModelCallbacksAnnotationFilter', 'Filter');
 App::uses('BaseAnnotation', 'Annotation');
 App::uses('CallbacksFilterableAnnotation', 'Filter');
 
@@ -8,16 +8,16 @@ App::uses('CallbacksFilterableAnnotation', 'Filter');
  *
  * @author kevbry
  */
-abstract class ControllerActionAnnotation extends BaseAnnotation implements CallbacksFilterableAnnotation {
+abstract class ModelMethodAnnotation extends BaseAnnotation implements CallbacksFilterableAnnotation {
 	/**
 	 *
 	 * @var Mixed The component lifecycle stage at which this annotation should run. By default, only at initialize (pre-beforeFilter). May be single or array of stages.
 	 */
-	public $stage = ComponentCallbacksAnnotationFilter::STAGE_INITIALIZE;
+	public $stage = ModelCallbacksAnnotationFilter::STAGE_BEFORE;
 
 	/**
-	 * Called to run this annotation on an action ($controller->request->action)
+	 * Called to run this annotation on an action ($Model->method)
 	 * on the given controller
 	 */
-	abstract public function invoke(Controller $controller);
+	abstract public function invoke(Model $Model);
 }
